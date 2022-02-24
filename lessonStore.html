@@ -96,16 +96,6 @@
       navigator.serviceWorker.register('service-worker.js');
     };
 
-    self.addEventListener('install', (e) => {
-      console.log('[Service Worker] Install');
-      e.waitUntil(
-        caches.open(cacheName).then((cache) => {
-          console.log('[Service Worker] Caching all the files');
-          return cache.addAll(cacheFiles);
-        })
-      );
-    });
-
     let app = new Vue({
         el: '#app',
         data: {
